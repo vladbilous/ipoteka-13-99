@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Bilous Vlad vladbilous17@gmail.com" />
+    <link
+      rel="stylesheet"
+      href="https://www.ukrgasbank.com/images/favicon.ico"
+      rel="icon"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="fonts/Circe/stylesheet.css" />
+    <!-- boottstrup -->
+    <!-- подключение css-файла -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <!-- подключение нужной версии jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- подключение js-файла -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/jquey.3.4.1.min.js"></script>
+    <script src="https://rawgit.com/kottenator/jquery-circle-progress/1.2.2/dist/circle-progress.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+    <!-- boottstrup -->
+    <title>Homecredit</title>
+    <link rel="stylesheet" href="css/ie.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="head_txt">
+        <!--        <img class="key tablet" src="img/bg2.png" alt="key">-->
+        <!--        <img class="car tablet" src="img/bg2.png" alt="car">-->
+        <img class="pc-ban" src="img/bg2.png" alt="car">
+        <img class="mob-ban" src="img/mob-ban.png" alt="car">
+
+      </div>
+      <div class="wrapper">
+        <div class="header_logo">
+          <!--        <img src="img\current-img\logo.png" alt="logo">-->
+        </div>
+
+        <!--      <div class="head_list">-->
+        <!--        <div class="head-list-item">-->
+        <!--          <img src="img\current-img\yellow_icon1.png" alt="icon">-->
+        <!--          <p>при власному внеску від <span>40%</span><br>вартості авто - без довідки про доходи</p>-->
+        <!--        </div>-->
+        <!--        <div class="head-list-item">-->
+        <!--          <img src="img\current-img\yellow_icon2.png" alt="icon">-->
+        <!--          <p>рішення за <span>2</span> години</p>-->
+        <!--        </div>-->
+        <!--      </div>-->
+      </div>
+    </header>
+    <div class="wrapper">
+      <div class="flex-container icons-container">
+        <div>
+          <img src="img/icon1.png" alt="gray-icon" />
+          <h4>
+            <span class="text-icon-small">
+              Швидкий розгляд  <br />
+            </span>
+            заявки від 1 дня
+
+          </h4>
+        </div>
+        <div>
+          <img src="img/icon2.png" alt="gray-icon" />
+          <h4><span>ПЕРВИННИЙ ВНЕСОК</span><br />від 30% вартості житла</h4>
+        </div>
+        <div>
+          <img src="img/icon3.png" alt="gray-icon" />
+          <h4><span>ТЕРМІН КРЕДИТУ</span><br />до 20 років</h4>
+        </div>
+      </div>
+      <div id="calculator">
+        <form action="#">
+          <h2>Калькулятор</h2>
+          <div class="error"></div>
+          <p>
+            <label for="car-payment">Вартість квартири, грн.</label>
+            <input
+              type="number"
+              onkeyup="checkCurr(this)"
+              name="car-payment"
+              id="car-payment"
+              value="1000000"
+            />
+          </p>
+
+          <p class="stavka hidden">
+            <label>Ставка річних, %</label>
+            <span>13,99 %</span>
+          </p>
+
+          <p>
+            <label for="prepaid-expense">Аванс, грн.</label>
+            <input
+              type="number"
+              onkeyup="checkCurr(this)"
+              name="prepaid-expense"
+              id="prepaid-expense"
+              value="300000"
+              maxlength="14"
+            />
+          </p>
+
+          <p class="">
+            <label for="prepaid-expense">Сума кредиту, грн.</label>
+            <input
+              type=" number"
+              name="credit-sum"
+              id="credit-sum"
+              value="700000"
+              readonly
+              style="background: transparent; color: #1c3968;"
+            />
+          </p>
+
+          <p>
+            <label for="month-rate">Термін кредитування, <br />міс.</label>
+            <input type="number" id="month-rate" max="252" value="240" />
+          </p>
+          <p class="sele">
+            <label>Схема погашення</label>
+            <select class="aun-class">
+              <option value="1">Класика</option>
+              <option value="2">Ануїтет</option>
+            </select>
+          </p>
+          <!-- <button type="button">Розрахувати</button> -->
+        </form>
+        <div class="percent-block tab">
+          <div class="circle-wrap">
+            <div class="circle-1" data-size="190" data-thickness="15">
+              <span class="number">12</span>
+            </div>
+            <span style="padding-bottom: 0;"
+              >Ваш місячний платіж<sup>*</sup></span
+            >
+            <span style="padding-top: 0;" class="clasic" id="clasic"></span>
+            <div class="circle-2" data-size="190" data-thickness="15">
+              <span class="number">12</span>
+            </div>
+            <span>Разові витрати на користь банку<sup>**</sup></span>
+            <!--          <span>Разові витрати, <span>на користь банку<sup>1</sup><br></span>-->
+          </div>
+        </div>
+        <div class="percent-block mob">
+          <div class="circle-wrap">
+            <div>
+              <div class="circle-1" data-size="140" data-thickness="12">
+                <span class="number">12</span>
+              </div>
+              <span style="padding-bottom: 0;"
+                >Ваш місячний платіж<sup>*</sup></span
+              >
+              <span style="padding-top: 0;" class="clasic" id="clasic"></span>
+
+              <div class="circle-2" data-size="140" data-thickness="12">
+                <span class="number">12</span>
+              </div>
+              <!--            <span>Разові витрати, <br>на користь банку<br><sup>1</sup></span>-->
+              <span>Разові витрати на користь банку<sup>**</sup></span>
+            </div>
+          </div>
+        </div>
+        <p class="description" id="description">
+          <br />
+          *Розрахунок зроблений згідно програми кредитування «Житло в кредит»
+          (вторинний ринок)
+          <br />
+          <!--        ** без урахування витрат на послуги 3-х осіб-->
+          ** Мінімальні витрати за умови перерахування грошей на рахунок
+          продавця
+          <!--        *Розрахунок зроблений згідно програми кредитування «Житло в кредит» (вторинний ринок)-->
+          <!--        *Розрахунок зроблений згідно програми кредитування Легкий старт-->
+          <!--        1 - Без врахування витрат на послуги третіх осіб (страхування,<br>-->
+          <!--      нотаріальних послуг, послуг в органах реєстрації авто та інше)<br>*Розрахунок зроблений згідно програми кредитування Легкий старт<br>*Розрахунок виконано по ануїтетному графіку погашення<br>*Для авто виробництва країн СНД, індійських та іранських марок<br> максимальний термін кредитування до 5 років;<br>*Для клієнтів Східної регіональної-->
+          <!--        дирекції: максимальний термін <br> кредитування до 5 років та максимальна сума кредиту становить<br> 1 млн. грн. Також мінімальний внесок не менше 30% від вартості авто.-->
+          <!--      -->
+        </p>
+
+        <a target="_blank" href="https://www.ukrgasbank.com/private/credits/ipotek_credit/ipoteka_credits/" class="href-block">
+          <p class="href-block__text">
+          Детальні умови в розрізі іпотечних програм
+          </p>
+        </a>
+      </div>
+
+      <div class="block-itd">
+        <div class="block1-itd">
+          <table>
+            <tr>
+              <td><img src="img/icon1.png" alt=""/></td>
+              <td><p class="block-itd__title">максимальний термін кредитування – до 20 років </p></td>
+            </tr>
+          </table>
+          <p class="block-itd__descriptions">
+
+          </p>
+        </div>
+        <div class="block1-itd">
+          <table>
+            <tr>
+              <td><img src="img/icon2.png" alt=""/></td>
+              <td><p class="block-itd__title">максимальна сума кредитування – 5 млн грн</p></td>
+            </tr>
+          </table>
+          <p class="block-itd__descriptions">
+            (сума кредиту, більша 5 000 000 грн., погоджується індивідуально)
+          </p>
+        </div>
+        <div class="block1-itd">
+          <table>
+            <tr>
+              <td><img src="img/icon3.png" alt=""/></td>
+              <td>
+                <p class="block-itd__title">Реальна річна відсоткова
+                Реальна річна відсоткова ставка – 18,28% річних у грн
+              </p>
+              </td>
+            </tr>
+          </table>
+          <p class="block-itd__descriptions">
+            (включаючи платежі за додаткові і супутні послуги банку та третіх осіб, пов'язані з отриманням,
+            обслуговуванням і поверненням кредиту при вартості нерухомості  1 млн грн, строком кредитування на 20 років та власному  внеску 30%,
+            схема погашення класична. Реальна річна відсоткова ставка залежить від обраних клієнтом умов кредитування та розміру UIRD12М на дату розрахунку.
+            Детальні умови кредитування на сайті www.ukrgasbank.com– розділ «Приватним клієнтам – Кредити – Іпотечні кредити – Житло в кредит
+            вторинний ринок або за телефоном: 0 800 309 000 (дзвінки безкоштовні у межах України).
+
+
+          </p>
+        </div>
+        <p class="block-itd__descriptions">
+          Кредит надається у відділеннях АБ «УКРГАЗБАНК» по всій території України за винятком тимчасово окупованої території АР Крим та зони проведення ООС.
+          Банк залишає за собою право змінювати умови кредитування.
+
+
+        </p>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+    <footer>
+      <div class="wrapper">
+        <div class="flex-container">
+          <div class="info">
+            <img class="car" src="img/home-img4.png" alt="green-car" />
+          </div>
+          <form class="contact-form">
+            <span class="title-form">ПОДАТИ ЗАЯВУ</span>
+            <br />
+            <p>
+              <b>
+                <input type="text" placeholder="Ім'я*" name="name" />
+              </b>
+              <b class="contact-form__item"
+                ><input type="text" placeholder="Телефон*" name="phone" />
+                <b class="contact-form__error"
+                  >Неправильно вказаний телефон</b
+                ></b
+              >
+            </p>
+            <p>
+              <b class="contact-form__item"
+                ><input type="text" placeholder="Email" name="email" />
+                <b class="contact-form__error">Неправильно вказана пошта</b></b
+              >
+              <b
+                ><input type="text" placeholder="Коментарі" name="comments"
+              /></b>
+            </p>
+            <b class="contact-form__mandatory">*Обов’язкові поля</b>
+
+            <p class="contact-form__check-box">
+              <input type="checkbox" name="option4" value="a4">
+              <span class="contact-form__data-title">
+                     Я даю згоду на обробку та використання<Br>
+                    моїх персональних даних
+                  </span>
+            </p>
+
+
+            <div class="contacts-form__submit-wrap">
+              <button class="contacts-form__submit-btn" type="submit">
+                Відправити
+              </button>
+              <p class="contacts-form__status-message">
+                Дякуємо за заявку. Ми зв'яжемося з Вами найближчим часом.
+              </p>
+            </div>
+          </form>
+        </div>
+        <div class="liscence">
+          <!--        <div>-->
+          <!--          <p>Максимальний термін кредитування - 84 місяці, максимальна сума кредитування – 1 500 000 грн. (сума кредиту, більша 1 500 000 грн., погоджується індивідуально).-->
+
+          <!--          </p>-->
+          <!--          <p>Реальна ефективна відсоткова ставка становить від 4,78% до 14,64% річних і залежить від обраних споживачем умов кредитування.-->
+
+          <!--          </p>-->
+          <!--          <p>Кредит надається у відділеннях Банку по всій території України за винятком тимчасово окупованої території АР Крим та зони проведення АТО.-->
+
+          <!--          </p>-->
+          <!--          <p>Банк залишає за собою право змінювати умови кредитування. Про детальні умови кредитування дізнавайтеся на сайті www.ukrgasbank.com-->
+          <!--          </p>-->
+          <!--        </div>-->
+          <div class="footer-right">
+                      <p class="politics"><a href="https://www.ukrgasbank.com/confidence">Політика конфіденційності</a></p>
+            <p>Ліцензія НБУ № 123 від 06.10.2011 року</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/circle-animation.js"></script>
+    <script src="js/jqeury.validate.min.js"></script>
+    <script src="js/main.js"></script>
+
+<!--  <script>-->
+<!--    function discharge(){-->
+<!--      $('#car-payment').val(String($('#car-payment').val().replace(/[^0-9.]/g,'')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));-->
+<!--    }-->
+<!--    discharge();-->
+<!--    $('#car-payment').keyup(function(){-->
+<!--      discharge();-->
+<!--    });-->
+<!--  </script>-->
+  </body>
+</html>
